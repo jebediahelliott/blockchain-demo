@@ -10,7 +10,7 @@ class Block {
     }
 
     calculateHash() {
-        return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data) + this.nonce).toString();
+        return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.transactions) + this.nonce).toString();
     }
 
     mineBlock(difficulty) {
@@ -20,6 +20,17 @@ class Block {
         }
 
         console.log("Bock mined: ", this.hash);
+        console.log("Mining attempts: ", this.nonce);
+    }
+
+    hasValidTransactions() {
+        for(const tx of this.transactions) {
+            if (!tx.isValid()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
 
