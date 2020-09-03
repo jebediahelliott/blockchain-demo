@@ -28,7 +28,7 @@ class Transaction {
             return true;
         }
 
-        if (!this.signature || this.signature.lenght === 0) {
+        if (!this.signature || this.signature.length === 0) {
             throw new Error("No signature in this transaction")
         }
 

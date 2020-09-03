@@ -19,7 +19,8 @@ class Block {
             this.hash = this.calculateHash();
         }
 
-        console.log("Bock mined: ", this.hash);
+        console.log("Block mined: ", this.hash);
+        console.log("Previous hash: ", this.previousHash);
         console.log("Mining attempts: ", this.nonce);
     }
 
